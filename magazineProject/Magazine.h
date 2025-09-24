@@ -10,23 +10,26 @@ class Magazine
 	string tel;
 	string email;
 	int year;
+	static int count;
 public:
 	Magazine();
 	Magazine(string n, string d, string t, string e, int y);
 	void Input();
 	void Print();
 
-	/*void SetName(string n);
+	void SetName(string n);
 	void SetDescription(string d);
 	void SetTell(string t);
 	void SetEmail(string e);
 	void SetYear(int y);
 
-	void GetName(string n);
-	void GetDescription(string d);
-	void GetTell(string t);
-	void GetEmail(string e);
-	void GetYear(int y);*/
+	string GetName();
+	string GetDescription();
+	string GetTell();
+	string GetEmail();
+	int GetYear();
+
+	static void PrintCount();
 };
 
 Magazine::Magazine()
@@ -41,6 +44,7 @@ inline Magazine::Magazine(string n, string d, string t, string e, int y)
 	tel = t;
 	email = e;
 	year = y;
+	count++;
 }
 
 inline void Magazine::Input()
@@ -60,6 +64,7 @@ inline void Magazine::Input()
 	email = buff;
 	cout << "Enter the year of the magazine: " << endl;
 	cin >> year;
+	count++;
 }
 
 inline void Magazine::Print()
@@ -70,3 +75,65 @@ inline void Magazine::Print()
 	cout << "Email: " << email << endl;
 	cout << "Year: " << year << endl;
 }
+
+inline void Magazine::SetName(string n)
+{
+	name = n;
+}
+
+inline void Magazine::SetDescription(string d)
+{
+	description = d;
+}
+
+inline void Magazine::SetTell(string t)
+{
+	tel = t;
+}
+
+inline void Magazine::SetEmail(string e)
+{
+	email = e;
+}
+
+inline void Magazine::SetYear(int y)
+{
+	if (y > 0)
+	{
+		year = y;
+	}
+}
+
+inline string Magazine::GetName()
+{
+	return name;
+}
+
+inline string Magazine::GetDescription()
+{
+	return description;
+}
+
+inline string Magazine::GetTell()
+{
+	return tel;
+}
+
+inline string Magazine::GetEmail()
+{
+	return email;
+}
+
+inline int Magazine::GetYear()
+{
+	return year;
+}
+
+int Magazine::count = 0;
+inline void Magazine::PrintCount()
+{
+	cout << "Count of objects: " << count << endl;
+}
+
+
+
